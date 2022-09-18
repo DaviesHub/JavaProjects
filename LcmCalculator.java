@@ -23,21 +23,28 @@ public class LcmCalculator {
         } while (numOne <= 0 || numTwo <= 0);
 
         // Compute LCM of the inputs
-        while (true) {
-            if (numOne == numTwo) {
+        if (numOne == numTwo) {
                 lcm = numOne;
-                break;
+            }
+        else {
+            // Find the largest number
+            if (numOne > numTwo) {
+                maxNum = numOne;
+                minNum = numTwo;
             }
             else {
-                // Find the smallest number
-                if (numOne > numTwo) {
-                    maxNum = numOne;
-                    minNum = numTwo;
+                maxNum = numTwo;
+                minNum = numOne;
+            }
+            int i = 1;
+            int multiple;
+            while (true) {
+                multiple = maxNum + (maxNum * i);
+                if (multiple % maxNum == 0 && multiple % minNum == 0) {
+                    lcm = multiple;
+                    break;
                 }
-                else {
-                    maxNum = numTwo;
-                    minNum = numOne;
-                }
+            }
         }
 
     }
