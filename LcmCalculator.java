@@ -8,18 +8,18 @@ import java.util.Scanner;
 public class LcmCalculator {
     public static void main(String[] args) {
         // Declare variables
-        int numOne;
-        int numTwo;
-        int maxNum;
-        int minNum;
-        int lcm;
+        long numOne;
+        long numTwo;
+        long maxNum;
+        long minNum;
+        long lcm;
 
         // Prompt user for input
         do {
-            System.out.print("Enter two integers separated by one space: ");
+            System.out.print("Enter two positive integers separated by one space: ");
             Scanner scanner = new Scanner(System.in);
-            numOne = scanner.nextInt();
-            numTwo = scanner.nextInt();
+            numOne = scanner.nextLong();
+            numTwo = scanner.nextLong();
         } while (numOne <= 0 || numTwo <= 0);
 
         // Compute LCM of the inputs
@@ -36,16 +36,19 @@ public class LcmCalculator {
                 maxNum = numTwo;
                 minNum = numOne;
             }
-            int i = 1;
-            int multiple;
+            long i = 0;
+            long multiple;
             while (true) {
                 multiple = maxNum + (maxNum * i);
                 if (multiple % maxNum == 0 && multiple % minNum == 0) {
                     lcm = multiple;
                     break;
                 }
+                else {
+                    i++;
+                }
             }
         }
-
+        System.out.println("The lcm is " + lcm);
     }
 }
