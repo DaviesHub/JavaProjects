@@ -75,7 +75,7 @@ class GuessGame {
                 break;
             }
             else {
-                System.out.println("Players will have to try again\n");
+                System.out.println("Players will have to try again.\n");
             }
         }
     }
